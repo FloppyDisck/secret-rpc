@@ -1,0 +1,33 @@
+[package]
+name = "secret-rpc"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cosmwasm-std = { version = "0.10", package = "secret-cosmwasm-std" }
+prost = "0.11"
+# TODO: ideally remove this dependency for something more lightweight
+cosmrs = { git = "https://github.com/FloppyDisck/cosmos-rust", branch = "secret_static_linking", features = [
+    "bip32",
+    "secret-cosmwasm",
+    "dev",
+] }
+bip39 = "1.0"
+bip32 = "0.4"
+tokio = { version = "1.19", features = ["rt"] }
+futures = "0.3.25"
+thiserror = "1.0.31"
+serde = "1.0"
+base64 = "0.13.0"
+serde_json = "1.0.81"
+nanorand = "0.7.0"
+# TODO: use stable version once released
+x25519-dalek = "2.0.0-pre.1"
+hkdf = "0.12.3"
+sha2 = "0.10.2"
+# TODO: use crates.io once 0.7 is published
+aes-siv = { git = "https://github.com/RustCrypto/AEADs" }
+hex = "0.4.3"
+async-trait = "0.1.60"
